@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cw-deployment
+  labels:
+    app: cw
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cw
+  template:
+    metadata:
+      labels:
+        app: cw
+    spec:
+      containers:
+      - name: cw
+        image: clarusway/cw_web_flask1
+        ports:
+        - containerPort: 5000
